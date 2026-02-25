@@ -1,8 +1,13 @@
 cmake_minimum_required( VERSION 3.16 )
 
-project( ccbLib CXX C )
+project( CopperCube CXX C )
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 set( CMAKE_CXX_STANDARD 11 )
 
+#include(FetchContent)
+
+#add_subdirectory(remotery) # If you wish to set up profiling, I would recommend looking into Remotery, it can be found here: https://github.com/Celtoys/Remotery.
 add_subdirectory(flacelib)
 add_subdirectory(win32player)
+#target_link_libraries(irrlicht PUBLIC remotery)
